@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <img alt="Yotei screenshot for Google Chrome" src="https://i.imgur.com/GImiS4h.png">
+  <img alt="Yotei screenshot for Google Chrome" src="https://i.imgur.com/u88jxBo.png">
 </p>
 
 ## Install
