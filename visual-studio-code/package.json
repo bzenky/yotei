@@ -1,0 +1,50 @@
+{
+  "name": "yotei",
+  "displayName": "Yotei Theme",
+  "homepage": "https://github.com/bzenky/yotei-theme",
+  "description": "A dark theme inspired by a purple/red sky at dawn.",
+  "author": {
+    "name": "Zenky",
+    "email": "bzenky@outlook.com",
+    "url": "https://bzenky.dev"
+  },
+  "publisher": "Zenky",
+  "version": "1.1.2",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.72.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "scripts": {
+    "publish": "vsce publish"
+  },
+  "keywords": [
+    "Theme",
+    "Dark Theme",
+    "Yotei",
+    "bruno zenky",
+    "Zenky",
+    "Dark Purple",
+    "tema escuro"
+  ],
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#211925",
+    "theme": "dark"
+  },
+  "contributes": {
+    "themes": [
+      {
+        "label": "Yotei",
+        "uiTheme": "vs-dark",
+        "path": "./themes/yotei-color-theme.json"
+      }
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bzenky/yotei-theme"
+  }
+}
