@@ -1,0 +1,25 @@
+[
+  {
+    "name": "Yotei",
+    "background": "#211925",
+    "black": "#282936",
+    "blue": "#62D6E8",
+    "brightBlack": "#626483",
+    "brightBlue": "#e462e8",
+    "brightCyan": "#A1EFE4",
+    "brightGreen": "#EBFF87",
+    "brightPurple": "#B45BCF",
+    "brightRed": "#EA51B2",
+    "brightWhite": "#F7F7FB",
+    "brightYellow": "#4351a1",
+    "cursorColor": "#403150",
+    "cyan": "#A1EFE4",
+    "foreground": "#F2F2F2",
+    "green": "#ffd900",
+    "purple": "#de71ff",
+    "red": "#EA51B2",
+    "selectionBackground": "#44475A",
+    "white": "#E9E9F4",
+    "yellow": "#77cdff"
+  }
+]
