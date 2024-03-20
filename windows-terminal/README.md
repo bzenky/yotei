@@ -19,4 +19,4 @@
 - Open settings.json of Windows Terminal
 - Find key "schemes"
 - Copy and paste the object inside theme.json file in "schemes"
-- Now you can select this theme inside profile appearance in configuration, or find inside your profile inside settings.json and add `"colorScheme": "Yotei`
+- Now you can select this theme inside profile appearance in configuration, or find your profile inside settings.json and add `"colorScheme": "Yotei`
