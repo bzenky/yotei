@@ -1,5 +1,13 @@
 # Change Log
 
+## [1.1.4]
+
+- Terminal color change
+
+## [1.1.3]
+
+- Terminal color change
+
 ## [1.1.2]
 
 - Docs
