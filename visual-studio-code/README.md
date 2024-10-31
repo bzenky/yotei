@@ -14,6 +14,10 @@
   <img alt="Yotei screenshot for Visual Studio Code" src="https://i.imgur.com/QmfcmtZ.png">
 </p>
 
+<p>
+  <a href="https://vscodethemes.com/e/Zenky.yotei/yotei">Preview</a>
+</p>
+
 ## Preview image configs
 
 1. Install [JetBrains Mono font](https://www.jetbrains.com/lp/mono/)
