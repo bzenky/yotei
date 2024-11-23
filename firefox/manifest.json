@@ -1,0 +1,24 @@
+{
+  "name": "Yotei",
+  "manifest_version": 2,
+  "version": "3.0",
+  "theme": {
+    "images": {
+      "theme_frame": "icon.png"
+    },
+    "colors": {
+      "frame": "rgba(34, 16, 32, 1)",
+      "tab_background_text": "rgba(120, 158, 187, 1)",
+      "toolbar": "rgba(37, 37, 38, 1)",
+      "bookmark_text": "rgba(204, 101, 255, 1)",
+      "toolbar_field": "rgba(57, 32, 55, 1)",
+      "toolbar_field_text": "rgba(205, 241, 255, 1)",
+      "tab_line": "rgba(253, 66, 0, 1)"
+    }
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{37831bad-2f2c-49f2-869c-2ff7a3b8f45c}"
+    }
+  }
+}
