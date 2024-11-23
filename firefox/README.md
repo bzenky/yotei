@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <img alt="Yotei screenshot for Firefox" src="https://i.imgur.com/fnDS81W.png">
+  <img alt="Yotei screenshot for Firefox" src="https://i.imgur.com/podfHfk.png">
 </p>
 
 ## Install
