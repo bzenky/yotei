@@ -54,6 +54,10 @@ const themeFiles = [
   {
     source: "Visual Studio Code",
     path: new URL("../../../visual-studio-code/themes/yotei-color-theme.json", import.meta.url)
+  },
+  {
+    source: "Visual Studio Code",
+    path: new URL("../../../visual-studio-code/themes/yotei-midnight-color-theme.json", import.meta.url)
   }
 ];
 

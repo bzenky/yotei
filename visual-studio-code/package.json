@@ -40,6 +40,11 @@
         "label": "Yotei",
         "uiTheme": "vs-dark",
         "path": "./themes/yotei-color-theme.json"
+      },
+      {
+        "label": "Yotei Midnight",
+        "uiTheme": "vs-dark",
+        "path": "./themes/yotei-midnight-color-theme.json"
       }
     ]
   },
