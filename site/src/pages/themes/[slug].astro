@@ -1,0 +1,60 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ThemePreview from "../../components/ThemePreview.astro";
+import Palette from "../../components/Palette.astro";
+import ApplicationPreviews from "../../components/ApplicationPreviews.astro";
+import { applications } from "../../lib/applications";
+import { getThemes } from "../../lib/themes";
+import { samples } from "../../lib/samples";
+import { codeToHtml } from "shiki";
+
+export async function getStaticPaths() {
+  const themes = await getThemes();
+
+  return themes.map((theme) => ({
+    params: { slug: theme.slug },
+    props: { theme }
+  }));
+}
+
+const { theme } = Astro.props;
+const highlightedSamples = await Promise.all(
+  samples.map(async (sample) => ({
+    ...sample,
+    html: await codeToHtml(sample.code, {
+      lang: sample.language,
+      theme: theme.shikiTheme
+    })
+  }))
+);
+---
+
+<BaseLayout title={`${theme.name} Theme Preview`} description={`Preview ${theme.name} with editor UI, syntax highlighting, and palette colors.`}>
+  <main class="page-shell detail-page">
+    <nav class="top-nav" aria-label="Breadcrumb">
+      <a href="/">← Back to gallery</a>
+      <a href="https://github.com/bzenky/yotei/tree/master/visual-studio-code" target="_blank" rel="noreferrer">Install theme</a>
+    </nav>
+
+    <section class="detail-header">
+      <div>
+        <p class="eyebrow">{theme.source}</p>
+        <h1>{theme.name}</h1>
+        <p>
+          A cross-application theme rendered from source files where available.
+          Switch between code samples to see how the editor palette behaves in real snippets.
+        </p>
+      </div>
+      <div class="meta-card">
+        <span>Appearance</span>
+        <strong>{theme.type}</strong>
+        <span>Source</span>
+        <strong>{theme.source}</strong>
+      </div>
+    </section>
+
+    <ThemePreview theme={theme} samples={highlightedSamples} />
+    <ApplicationPreviews applications={applications} />
+    <Palette theme={theme} />
+  </main>
+</BaseLayout>

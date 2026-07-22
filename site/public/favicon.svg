@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Yotei">
+  <rect width="64" height="64" rx="16" fill="#211925" />
+  <path d="M8 48 C18 28 24 18 32 18 C40 18 46 28 56 48 Z" fill="#CC65FF" />
+  <path d="M14 48 C22 35 27 28 32 28 C37 28 42 35 50 48 Z" fill="#FD4200" />
+</svg>

@@ -17,4 +17,4 @@
 ## Install
 
 - Search for Yotei in Google Chrome Web Store
-- Or go directly for it <a href="https://chromewebstore.google.com/search/yotei">link</a>
+- Or go directly for it <a href="https://chromewebstore.google.com/detail/yotei/joafbehmencjimojljfchmmenokidfef">link</a>

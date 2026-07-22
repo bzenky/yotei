@@ -1,0 +1,25 @@
+---
+import type { PreviewTheme } from "../lib/themes";
+
+interface Props {
+  theme: PreviewTheme;
+}
+
+const { theme } = Astro.props;
+---
+
+<section class="panel palette-panel" aria-labelledby="palette-title">
+  <div class="section-heading">
+    <p>Palette</p>
+    <h2 id="palette-title">Core colors</h2>
+  </div>
+  <div class="palette-grid">
+    {theme.palette.map((color) => (
+      <div class="swatch-card">
+        <span class="swatch" style={`background: ${color.value}`}></span>
+        <span class="swatch-name">{color.name}</span>
+        <code>{color.value}</code>
+      </div>
+    ))}
+  </div>
+</section>

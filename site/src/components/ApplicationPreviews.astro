@@ -1,0 +1,83 @@
+---
+import type { ApplicationTheme } from "../lib/applications";
+
+interface Props {
+  applications: ApplicationTheme[];
+}
+
+const { applications } = Astro.props;
+---
+
+<section class="applications-section" aria-labelledby="apps-title">
+  <div class="section-heading">
+    <p>Beyond the editor</p>
+    <h2 id="apps-title">Yotei across applications</h2>
+  </div>
+
+  <div class="application-grid">
+    {applications.map((app) => (
+      <article class:list={["application-card", `application-${app.category}`]}>
+        <div class="application-preview" style={`--app-bg: ${app.colors.background ?? app.colors.frame ?? app.colors.columnBg}; --app-fg: ${app.colors.foreground ?? app.colors.tabText ?? app.colors.activeText}; --app-accent: ${app.colors.accent ?? app.colors.red ?? app.colors.activeItem}; --app-secondary: ${app.colors.secondary ?? app.colors.toolbar ?? app.colors.menuBgHover};`}>
+          {app.category === "browser" && (
+            <div class="browser-mock">
+              <div class="browser-tabs">
+                <span class="browser-tab active">Yotei</span>
+                <span class="browser-tab">Docs</span>
+              </div>
+              <div class="browser-toolbar">
+                <span></span>
+                <strong>github.com/bzenky/yotei</strong>
+              </div>
+              <div class="browser-page">{app.name}</div>
+            </div>
+          )}
+
+          {app.category === "terminal" && (
+            <div class="terminal-mock">
+              <pre><span>➜</span> yotei echo "dawn"
+<span class="terminal-success">dawn</span></pre>
+              <div class="ansi-row">
+                {Object.entries(app.colors).slice(4).map(([, color]) => <span style={`background: ${color}`}></span>)}
+              </div>
+            </div>
+          )}
+
+          {app.category === "chat" && (
+            <div class="slack-mock">
+              <aside>
+                <strong>Yotei</strong>
+                <span># general</span>
+                <span class="active"># themes</span>
+                <span># dawn</span>
+              </aside>
+              <main>
+                <b>Zenky</b>
+                <p>Yotei is now available everywhere.</p>
+              </main>
+            </div>
+          )}
+
+          {app.category === "editor" && (
+            <div class="mini-editor-mock">
+              <span></span>
+              <span></span>
+              <span></span>
+              <pre>const theme = "Yotei";</pre>
+            </div>
+          )}
+        </div>
+
+        <div class="application-content">
+          <p>{app.category}</p>
+          <h3>{app.name}</h3>
+          <span>{app.description}</span>
+          {app.values && <code>{app.values}</code>}
+          <div class="application-actions">
+            {app.storeUrl && <a class="store-link" href={app.storeUrl} target="_blank" rel="noreferrer">Open store</a>}
+                        <a href={`https://github.com/bzenky/yotei/tree/master/${app.installPath}`} target="_blank" rel="noreferrer">Install guide</a>
+          </div>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>

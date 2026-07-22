@@ -1,7 +1,7 @@
 {
   "name": "yotei",
   "displayName": "Yotei Theme",
-  "homepage": "https://github.com/bzenky/yotei-theme",
+  "homepage": "https://github.com/bzenky/yotei",
   "description": "A dark theme inspired by a purple/red sky at dawn.",
   "author": {
     "name": "Zenky",
@@ -45,6 +45,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bzenky/yotei-theme"
+    "url": "https://github.com/bzenky/yotei"
   }
 }

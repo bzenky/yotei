@@ -1,0 +1,7 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "allowJsonModuleImports": true,
+    "types": ["node"]
+  }
+}

@@ -1,0 +1,125 @@
+---
+import type { PreviewTheme } from "../lib/themes";
+import type { CodeSample } from "../lib/samples";
+
+type HighlightedSample = CodeSample & {
+  html: string;
+};
+
+interface Props {
+  theme: PreviewTheme;
+  samples: HighlightedSample[];
+  compact?: boolean;
+}
+
+const { theme, samples, compact = false } = Astro.props;
+const id = `preview-${theme.slug}-${compact ? "compact" : "full"}`;
+const colors = theme.colors;
+const activeSample = samples[0];
+const cssVars = [
+  `--editor-bg: ${colors["editor.background"]}`,
+  `--editor-fg: ${colors["editor.foreground"]}`,
+  `--selection: ${colors["editor.selectionBackground"]}`,
+  `--sidebar-bg: ${colors["sideBar.background"] ?? colors["editor.background"]}`,
+  `--titlebar-bg: ${colors["titleBar.activeBackground"] ?? colors["editor.background"]}`,
+  `--status-bg: ${colors["statusBar.background"] ?? colors["editor.background"]}`,
+  `--tab-active: ${colors["tab.activeForeground"] ?? theme.syntax.keyword}`,
+  `--tab-inactive: ${colors["tab.inactiveForeground"] ?? theme.syntax.comment}`,
+  `--accent: ${colors["focusBorder"] ?? theme.syntax.function}`,
+  `--input-bg: ${colors["input.background"] ?? colors["editor.selectionBackground"]}`,
+  `--terminal-bg: ${colors["terminal.background"] ?? colors["editor.background"]}`,
+  `--terminal-fg: ${colors["terminal.foreground"] ?? colors["editor.foreground"]}`
+].join(";");
+---
+
+<section id={id} class:list={["preview-shell", { compact }]} style={cssVars} data-preview-root>
+  <div class="window-chrome">
+    <span></span>
+    <span></span>
+    <span></span>
+    <strong>{theme.name}</strong>
+  </div>
+
+  <div class="editor-frame">
+    <aside class="activity-bar" aria-label="Activity bar">
+      <span>⌘</span>
+      <span>⌕</span>
+      <span>⑂</span>
+      <span>⚙</span>
+    </aside>
+
+    <aside class="sidebar">
+      <div class="sidebar-title">EXPLORER</div>
+      <ul>
+        <li class="open">src</li>
+        <li>components</li>
+        <li>ThemePreview.astro</li>
+        <li>lib/themes.ts</li>
+        <li>README.md</li>
+      </ul>
+    </aside>
+
+    <div class="workbench">
+      <div class="tabs" role="tablist" aria-label="Code samples">
+        {samples.map((sample, index) => (
+          <button
+            class:list={["tab", { active: index === 0 }]}
+            type="button"
+            data-sample-tab={index}
+            aria-selected={index === 0 ? "true" : "false"}
+          >
+            {sample.filename}
+          </button>
+        ))}
+      </div>
+
+      <div class="editor-content">
+        <div class="breadcrumbs">yotei / preview / <span data-active-file>{activeSample.filename}</span></div>
+        <div class="code-panels">
+          {samples.map((sample, index) => (
+            <div class:list={["code-panel", { active: index === 0 }]} data-sample-panel={index} data-filename={sample.filename}>
+              <Fragment set:html={sample.html} />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="terminal-panel">
+        <div class="terminal-header">Terminal</div>
+        <pre><span class="prompt">➜</span> yotei git:(main) npm run build
+<span class="ok">✓</span> Generated previews from theme source</pre>
+      </div>
+
+      <div class="status-bar">
+        <span>{theme.name}</span>
+        <span>UTF-8</span>
+        <span>{theme.type}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll("[data-preview-root]").forEach((root) => {
+    const tabs = Array.from(root.querySelectorAll("[data-sample-tab]"));
+    const panels = Array.from(root.querySelectorAll("[data-sample-panel]"));
+    const activeFile = root.querySelector("[data-active-file]");
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const index = tab.getAttribute("data-sample-tab");
+        const panel = root.querySelector(`[data-sample-panel="${index}"]`);
+
+        tabs.forEach((item) => {
+          item.classList.toggle("active", item === tab);
+          item.setAttribute("aria-selected", item === tab ? "true" : "false");
+        });
+        panels.forEach((item) => item.classList.toggle("active", item === panel));
+
+        if (activeFile && panel instanceof HTMLElement) {
+          activeFile.textContent = panel.dataset.filename ?? "preview";
+        }
+      });
+    });
+  });
+</script>
