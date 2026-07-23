@@ -18,6 +18,10 @@ export async function getStaticPaths() {
 }
 
 const { theme } = Astro.props;
+const themeDescription =
+  theme.slug === "yotei-midnight"
+    ? "A deeper, darker take on Yotei, keeping the purple-red dawn accents while shifting the editor into a midnight palette."
+    : "The original Yotei palette, inspired by a purple-red sky at dawn and tuned for warm dark editor sessions.";
 const highlightedSamples = await Promise.all(
   samples.map(async (sample) => ({
     ...sample,
@@ -33,7 +37,7 @@ const highlightedSamples = await Promise.all(
   <main class="page-shell detail-page">
     <nav class="top-nav" aria-label="Breadcrumb">
       <a href="/">← Back to gallery</a>
-      <a href="https://github.com/bzenky/yotei/tree/master/visual-studio-code" target="_blank" rel="noreferrer">Install theme</a>
+      <a href="https://github.com/bzenky/yotei/tree/master/visual-studio-code" target="_blank" rel="noreferrer">Install VS Code theme</a>
     </nav>
 
     <section class="detail-header">
@@ -41,7 +45,7 @@ const highlightedSamples = await Promise.all(
         <p class="eyebrow">{theme.source}</p>
         <h1>{theme.name}</h1>
         <p>
-          A cross-application theme rendered from source files where available.
+          {themeDescription}
           Switch between code samples to see how the editor palette behaves in real snippets.
         </p>
       </div>

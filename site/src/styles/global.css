@@ -203,13 +203,14 @@ a {
 .editor-frame {
   display: grid;
   grid-template-columns: 52px minmax(132px, 200px) 1fr;
-  min-height: 620px;
+  height: 620px;
+  min-height: 0;
   color: var(--editor-fg);
   background: var(--editor-bg);
 }
 
 .compact .editor-frame {
-  min-height: 560px;
+  height: 560px;
 }
 
 .activity-bar {
@@ -261,8 +262,9 @@ a {
 
 .workbench {
   display: grid;
-  grid-template-rows: auto 1fr auto auto;
+  grid-template-rows: auto minmax(0, 1fr) auto auto;
   min-width: 0;
+  min-height: 0;
 }
 
 .tabs {
@@ -290,7 +292,11 @@ a {
 }
 
 .editor-content {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
   min-width: 0;
+  min-height: 0;
+  overflow: hidden;
   background: var(--editor-bg);
 }
 
@@ -306,6 +312,8 @@ a {
 
 .code-panels {
   min-width: 0;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .code-panel {
@@ -314,11 +322,13 @@ a {
 
 .code-panel.active {
   display: block;
+  height: 100%;
 }
 
 .code-panel pre {
+  height: 100%;
+  min-height: 0;
   overflow: auto;
-  min-height: 350px;
   margin: 0;
   padding: 20px 24px 28px;
   background: var(--editor-bg) !important;
@@ -732,7 +742,7 @@ a {
   }
 
   .code-panel pre {
-    min-height: 300px;
+    min-height: 0;
     padding: 16px;
     font-size: 0.78rem;
   }

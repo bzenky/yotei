@@ -6,12 +6,13 @@ interface Props {
 }
 
 const { theme } = Astro.props;
+const paletteLabel = theme.slug === "yotei-midnight" ? "Midnight palette" : "Original palette";
 ---
 
 <section class="panel palette-panel" aria-labelledby="palette-title">
   <div class="section-heading">
-    <p>Palette</p>
-    <h2 id="palette-title">Core colors</h2>
+    <p>{paletteLabel}</p>
+    <h2 id="palette-title">Core palette colors</h2>
   </div>
   <div class="palette-grid">
     {theme.palette.map((color) => (
