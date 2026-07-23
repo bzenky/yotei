@@ -1,7 +1,7 @@
 {
   "name": "yotei",
   "displayName": "Yotei Theme",
-  "homepage": "https://github.com/bzenky/yotei",
+  "homepage": "https://yotei.bzenky.dev/",
   "description": "A dark theme inspired by a purple/red sky at dawn.",
   "author": {
     "name": "Zenky",
@@ -21,13 +21,12 @@
     "publish": "vsce publish"
   },
   "keywords": [
-    "Theme",
     "Dark Theme",
+    "Tema escuro",
     "Yotei",
-    "bruno zenky",
-    "Zenky",
     "Dark Purple",
-    "tema escuro"
+    "Dark Red",
+    "Dawn"
   ],
   "icon": "icon.png",
   "galleryBanner": {
