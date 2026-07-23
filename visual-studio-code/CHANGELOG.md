@@ -1,5 +1,10 @@
 # Change Log
 
+## [1.2.0]
+
+- New theme variant available:
+    - Yotei Midnight (a darker theme variant of Yotei)
+
 ## [1.1.4]
 
 - Terminal color change
