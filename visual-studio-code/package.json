@@ -5,11 +5,11 @@
   "description": "A dark theme inspired by a purple/red sky at dawn.",
   "author": {
     "name": "Zenky",
-    "email": "bzenky@outlook.com",
+    "email": "bzenky@gmail.com",
     "url": "https://bzenky.dev"
   },
   "publisher": "Zenky",
-  "version": "1.1.4",
+  "version": "1.2.0",
   "license": "MIT",
   "engines": {
     "vscode": "^1.72.0"
