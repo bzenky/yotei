@@ -40,6 +40,8 @@ export type PreviewTheme = {
   slug: string;
   type: "dark" | "light";
   source: string;
+  description: string;
+  paletteLabel: string;
   colors: VSCodeTheme["colors"];
   tokenColors: TokenColor[];
   syntax: Record<string, string>;
@@ -58,8 +60,31 @@ const themeFiles = [
   {
     source: "Visual Studio Code",
     path: new URL("../../../visual-studio-code/themes/yotei-midnight-color-theme.json", import.meta.url)
+  },
+  {
+    source: "Visual Studio Code",
+    path: new URL("../../../visual-studio-code/themes/yotei-dawn-color-theme.json", import.meta.url)
   }
 ];
+
+const defaultThemeMetadata = {
+  description:
+    "The original Yotei palette, inspired by a purple-red sky at dawn and tuned for warm dark editor sessions.",
+  paletteLabel: "Original palette"
+};
+
+const themeMetadata: Record<string, typeof defaultThemeMetadata> = {
+  "yotei-midnight": {
+    description:
+      "A deeper, darker take on Yotei, keeping the purple-red dawn accents while shifting the editor into a midnight palette.",
+    paletteLabel: "Midnight palette"
+  },
+  "yotei-dawn": {
+    description:
+      "A soft light take on Yotei, inspired by the first warm colors of dawn and built for brighter editor sessions.",
+    paletteLabel: "Dawn palette"
+  }
+};
 
 function slugify(value: string) {
   return value
@@ -142,12 +167,16 @@ export async function getThemes(): Promise<PreviewTheme[]> {
   const themes = await Promise.all(
     themeFiles.map(async (themeFile) => {
       const theme = JSON.parse(await readFile(themeFile.path, "utf-8")) as VSCodeTheme;
+      const slug = slugify(theme.name);
+      const metadata = themeMetadata[slug] ?? defaultThemeMetadata;
 
       return {
         name: theme.name,
-        slug: slugify(theme.name),
+        slug,
         type: theme.type,
         source: themeFile.source,
+        description: metadata.description,
+        paletteLabel: metadata.paletteLabel,
         colors: theme.colors,
         tokenColors: theme.tokenColors,
         syntax: buildSyntax(theme),

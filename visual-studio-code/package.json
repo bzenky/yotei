@@ -9,7 +9,7 @@
     "url": "https://bzenky.dev"
   },
   "publisher": "Zenky",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "license": "MIT",
   "engines": {
     "vscode": "^1.72.0"
@@ -44,6 +44,11 @@
         "label": "Yotei Midnight",
         "uiTheme": "vs-dark",
         "path": "./themes/yotei-midnight-color-theme.json"
+      },
+      {
+        "label": "Yotei Dawn",
+        "uiTheme": "vs",
+        "path": "./themes/yotei-dawn-color-theme.json"
       }
     ]
   },

@@ -1,5 +1,10 @@
 # Change Log
 
+## [1.3.0]
+
+- New theme variant available:
+    - Yotei Dawn (a soft light theme variant inspired by daybreak)
+
 ## [1.2.0]
 
 - New theme variant available:
