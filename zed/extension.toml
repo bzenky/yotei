@@ -1,0 +1,7 @@
+id = "yotei-theme"
+name = "Yotei Theme"
+version = "0.1.0"
+schema_version = 1
+authors = ["Zenky <bzenky@gmail.com>"]
+description = "Purple-red dawn colors for Zed, with Yotei, Midnight, and Dawn variants."
+repository = "https://github.com/bzenky/yotei"

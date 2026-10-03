@@ -34,6 +34,7 @@ npm run build
 | Application | Location | Install |
 | --- | --- | --- |
 | Visual Studio Code | [`visual-studio-code/`](visual-studio-code/) | [Install guide](visual-studio-code/INSTALL.md) |
+| Zed | [`zed/`](zed/) | [Local install guide](zed/README.md) (registry submission pending) |
 | Google Chrome | [`google-chrome/`](google-chrome/) | [Chrome Web Store](https://chromewebstore.google.com/detail/yotei/joafbehmencjimojljfchmmenokidfef) |
 | Firefox | [`firefox/`](firefox/) | [Firefox Add-ons](https://addons.mozilla.org/pt-BR/firefox/addon/yotei) |
 | Windows Terminal | [`windows-terminal/`](windows-terminal/) | [Install guide](windows-terminal/README.md) |
