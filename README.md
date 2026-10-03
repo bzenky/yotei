@@ -38,6 +38,7 @@ npm run build
 | Google Chrome | [`google-chrome/`](google-chrome/) | [Chrome Web Store](https://chromewebstore.google.com/detail/yotei/joafbehmencjimojljfchmmenokidfef) |
 | Firefox | [`firefox/`](firefox/) | [Firefox Add-ons](https://addons.mozilla.org/pt-BR/firefox/addon/yotei) |
 | Windows Terminal | [`windows-terminal/`](windows-terminal/) | [Install guide](windows-terminal/README.md) |
+| Kitty | [`kitty/`](kitty/) | [Install guide](kitty/README.md) |
 | Slack | [`slack/`](slack/) | [Install guide](slack/README.md) |
 
 ## Repository
