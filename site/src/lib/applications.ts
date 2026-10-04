@@ -1,6 +1,7 @@
 import chromeManifest from "../../../google-chrome/manifest.json";
 import firefoxManifest from "../../../firefox/manifest.json";
 import terminalTheme from "../../../windows-terminal/theme.json";
+import kittyTheme from "../../../kitty/yotei.conf?raw";
 
 export type ApplicationTheme = {
   name: string;
@@ -11,6 +12,7 @@ export type ApplicationTheme = {
   colors: Record<string, string>;
   storeUrl?: string;
   values?: string;
+  installCommand?: string;
 };
 
 type ChromeColor = number[];
@@ -58,6 +60,9 @@ function rgbaToHex(value: string) {
 const chromeColors = (chromeManifest as ChromeManifest).theme.colors;
 const firefoxColors = (firefoxManifest as FirefoxManifest).theme.colors;
 const terminalColors = (terminalTheme as TerminalTheme)[0];
+const kittyColors = Object.fromEntries(
+  [...kittyTheme.matchAll(/^(\w+)\s+(#[\da-f]{6})\s*$/gim)].map(([, key, value]) => [key, value])
+);
 
 export const applications: ApplicationTheme[] = [
   {
@@ -122,6 +127,26 @@ export const applications: ApplicationTheme[] = [
       purple: terminalColors.purple,
       cyan: terminalColors.cyan,
       yellow: terminalColors.yellow
+    }
+  },
+  {
+    name: "Kitty",
+    slug: "kitty",
+    category: "terminal",
+    description: "Available in Kitty’s theme selector: Yotei, Midnight, and Dawn. No Kitty update needed.",
+    installPath: "kitty/",
+    installCommand: "kitten themes --cache-age 0",
+    colors: {
+      background: kittyColors.background,
+      foreground: kittyColors.foreground,
+      cursor: kittyColors.cursor,
+      selection: kittyColors.selection_background,
+      ...Object.fromEntries(
+        ["black", "red", "green", "yellow", "blue", "purple", "cyan", "white",
+          "brightBlack", "brightRed", "brightGreen", "brightYellow", "brightBlue",
+          "brightPurple", "brightCyan", "brightWhite"]
+          .map((name, index) => [name, kittyColors[`color${index}`]])
+      )
     }
   },
   {

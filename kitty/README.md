@@ -14,6 +14,32 @@ colors, tabs, and window borders. Terminal palettes match the corresponding
 
 ## Install with the theme selector
 
+Yotei, Yotei Midnight, and Yotei Dawn are available in Kitty's public theme
+collection. No manual download or Kitty update is needed.
+
+Inside Kitty, refresh the collection and open the theme selector:
+
+```sh
+kitten themes --cache-age 0
+```
+
+Search for **Yotei**, choose a variant, and follow the prompts to apply it.
+The refresh makes new themes available immediately; normally Kitty checks
+for collection updates once a day.
+
+You can also apply a variant directly:
+
+```sh
+kitten themes --cache-age 0 --reload-in=all "Yotei"
+```
+
+Replace `Yotei` with `Yotei Midnight` or `Yotei Dawn` to switch variants.
+
+## Install local files
+
+To try or customize the files from this repository, copy them into your Kitty
+configuration's `themes/` directory.
+
 Run these commands from the root of this repository:
 
 ```sh
@@ -32,14 +58,7 @@ Inside Kitty, run:
 kitten themes
 ```
 
-Search for **Yotei**, choose a variant, and follow the prompts to apply it.
-You can also apply a variant directly:
-
-```sh
-kitten themes --reload-in=all "Yotei"
-```
-
-Replace `Yotei` with `Yotei Midnight` or `Yotei Dawn` to switch variants.
+Choose one of the copied themes to apply your local version.
 
 ## Install with an include
 
@@ -55,9 +74,10 @@ Restart Kitty to apply it.
 
 ## Public theme collection
 
-These files are available locally and have not been submitted to the public
-Kitty theme collection. Kitty accepts theme contributions through pull requests
-to [`kovidgoyal/kitty-themes`](https://github.com/kovidgoyal/kitty-themes).
+All three variants are published in
+[`kovidgoyal/kitty-themes`](https://github.com/kovidgoyal/kitty-themes), following
+the merge of [the Yotei submission](https://github.com/kovidgoyal/kitty-themes/pull/202).
+The collection updates independently of Kitty releases.
 
 See Kitty's [theme instructions](https://sw.kovidgoyal.net/kitty/kittens/themes/)
 and [color configuration reference](https://sw.kovidgoyal.net/kitty/conf/#color-scheme).

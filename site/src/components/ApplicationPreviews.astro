@@ -72,6 +72,7 @@ const { applications } = Astro.props;
           <h3>{app.name}</h3>
           <span>{app.description}</span>
           {app.values && <code>{app.values}</code>}
+          {app.installCommand && <code>{app.installCommand}</code>}
           <div class="application-actions">
             {app.storeUrl && <a class="store-link" href={app.storeUrl} target="_blank" rel="noreferrer">Open store</a>}
                         <a href={`https://github.com/bzenky/yotei/tree/master/${app.installPath}`} target="_blank" rel="noreferrer">Install guide</a>
