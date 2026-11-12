@@ -34,6 +34,7 @@ npm run build
 | Application | Location | Install |
 | --- | --- | --- |
 | Visual Studio Code | [`visual-studio-code/`](visual-studio-code/) | [Install guide](visual-studio-code/INSTALL.md) |
+| T3 Code | [`t3code/`](t3code/) | [Open VSX](https://open-vsx.org/extension/Zenky/yotei) · [Install guide](t3code/README.md) |
 | Zed | [`zed/`](zed/) | [Local install guide](zed/README.md) (registry submission pending) |
 | Google Chrome | [`google-chrome/`](google-chrome/) | [Chrome Web Store](https://chromewebstore.google.com/detail/yotei/joafbehmencjimojljfchmmenokidfef) |
 | Firefox | [`firefox/`](firefox/) | [Firefox Add-ons](https://addons.mozilla.org/pt-BR/firefox/addon/yotei) |
@@ -44,6 +45,10 @@ npm run build
 Yotei, Yotei Midnight, and Yotei Dawn are available in Kitty's public theme
 collection. Run `kitten themes --cache-age 0` inside Kitty, then search for
 **Yotei**. No Kitty update is needed.
+
+Yotei, Yotei Midnight, and Yotei Dawn are also available in T3 Code through
+Open VSX. Open **Settings → Appearance**, choose the theme import option,
+and search for **Yotei Theme** by **Zenky**.
 
 ## Repository
 

@@ -1,3 +1,4 @@
+import yoteiTheme from "../../../visual-studio-code/themes/yotei-color-theme.json";
 import chromeManifest from "../../../google-chrome/manifest.json";
 import firefoxManifest from "../../../firefox/manifest.json";
 import terminalTheme from "../../../windows-terminal/theme.json";
@@ -76,6 +77,20 @@ export const applications: ApplicationTheme[] = [
       foreground: "#FEF7FF",
       accent: "#FD4200",
       secondary: "#CC65FF"
+    }
+  },
+  {
+    name: "T3 Code",
+    slug: "t3code",
+    category: "editor",
+    description: "Yotei, Midnight, and Dawn are available through Open VSX. Import them in Settings → Appearance.",
+    installPath: "t3code/",
+    storeUrl: "https://open-vsx.org/extension/Zenky/yotei",
+    colors: {
+      background: yoteiTheme.colors["editor.background"],
+      foreground: yoteiTheme.colors["editor.foreground"],
+      accent: yoteiTheme.colors["focusBorder"],
+      secondary: yoteiTheme.colors["button.background"]
     }
   },
   {

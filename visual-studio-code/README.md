@@ -38,3 +38,12 @@ Editor settings:
 ## Install
 
 All instructions can be found at [INSTALL.md](./INSTALL.md).
+
+## T3 Code
+
+This package includes Yotei, Yotei Midnight, and Yotei Dawn. T3 Code can
+import the VS Code theme JSON files from this repository. The package is
+also published to Open VSX as `Zenky.yotei` for T3 Code's theme search.
+
+See the [T3 Code install guide](https://github.com/bzenky/yotei/blob/master/t3code/README.md)
+for theme search and local imports.

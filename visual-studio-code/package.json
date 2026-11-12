@@ -18,7 +18,9 @@
     "Themes"
   ],
   "scripts": {
-    "publish": "vsce publish"
+    "publish": "vsce publish",
+    "package": "npx --yes @vscode/vsce@4.1.0 package --no-dependencies --baseContentUrl https://github.com/bzenky/yotei/blob/master/visual-studio-code --baseImagesUrl https://raw.githubusercontent.com/bzenky/yotei/master/visual-studio-code",
+    "publish:openvsx": "npx --yes ovsx@1.4.0 publish --no-dependencies --baseContentUrl https://github.com/bzenky/yotei/blob/master/visual-studio-code --baseImagesUrl https://raw.githubusercontent.com/bzenky/yotei/master/visual-studio-code"
   },
   "keywords": [
     "Dark Theme",
@@ -54,6 +56,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bzenky/yotei"
+    "url": "https://github.com/bzenky/yotei",
+    "directory": "visual-studio-code"
   }
 }
