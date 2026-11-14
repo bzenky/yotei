@@ -12,23 +12,6 @@
 
 Yotei is a cross-application theme that started in Visual Studio Code and now brings the same warm purple/red dawn palette to other tools.
 
-## Preview website
-
-This repository includes an Astro preview site in [`site/`](site/) where you can preview Yotei across editor UI, syntax highlighting, browser mockups, terminal colors, and Slack styling.
-
-```bash
-cd site
-npm install
-npm run dev
-```
-
-To create a production build:
-
-```bash
-cd site
-npm run build
-```
-
 ## Available themes
 
 | Application | Location | Install |
