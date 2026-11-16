@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="glow"><stop stop-color="#CC65FF" stop-opacity=".22"/><stop offset="1" stop-color="#CC65FF" stop-opacity="0"/></radialGradient>
+    <linearGradient id="sunrise" x2="1" y2="1"><stop stop-color="#CC65FF"/><stop offset="1" stop-color="#FD4200"/></linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#130F16"/>
+  <ellipse cx="1020" cy="80" rx="630" ry="450" fill="url(#glow)"/>
+  <path d="M785 252L1015 44L1200 219V630H785Z" fill="#CC65FF" opacity=".045"/>
+  <g transform="translate(60,52)">
+    <rect width="66" height="66" rx="17" fill="#211925"/>
+    <path d="M8 50C18 29 25 18 33 18S48 29 58 50Z" fill="#CC65FF"/>
+    <path d="M14 50C22 36 28 29 33 29S44 36 52 50Z" fill="#FD4200"/>
+  </g>
+  <text x="148" y="104" font-family="DejaVu Sans, sans-serif" font-size="54" font-weight="bold" fill="#FEF7FF" letter-spacing="-2">Yotei</text>
+  <text x="60" y="185" font-family="DejaVu Sans, sans-serif" font-size="38" font-weight="bold" fill="#FEF7FF" letter-spacing="-1">The colors of dawn. Your workspace.</text>
+  <text x="62" y="225" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#D5C9DB">Three palettes for your editor, terminal, and beyond.</text>
+  <g transform="translate(60,278)">
+    <rect width="348" height="270" rx="16" fill="#211925" stroke="#FD4200" stroke-opacity=".45"/>
+    <path d="M16 0H332Q348 0 348 16V46H0V16Q0 0 16 0" fill="#20031d"/>
+    <circle cx="20" cy="23" r="4" fill="#FD4200"/><circle cx="34" cy="23" r="4" fill="#CC65FF"/><circle cx="48" cy="23" r="4" fill="#C3E88D"/>
+    <text x="70" y="29" fill="#FEF7FF" font-family="DejaVu Sans, sans-serif" font-weight="bold" font-size="16">Yotei</text>
+    <text xml:space="preserve" font-family="DejaVu Sans Mono, monospace" font-size="16" fill="#FEF7FF">
+      <tspan x="24" y="87" fill="#B2A7B8">// Colors of first light</tspan>
+      <tspan x="24" y="125" fill="#CC65FF">const</tspan><tspan> theme = {</tspan>
+      <tspan x="44" y="155">name: </tspan><tspan fill="#FEF7FF">"Yotei"</tspan><tspan>,</tspan>
+      <tspan x="44" y="185">mood: </tspan><tspan fill="#FEF7FF">"warm"</tspan>
+      <tspan x="24" y="215">};</tspan>
+    </text>
+    <rect x="24" y="237" width="20" height="8" rx="4" fill="#FD4200"/><rect x="52" y="237" width="20" height="8" rx="4" fill="#de71ff"/><rect x="80" y="237" width="20" height="8" rx="4" fill="#FD4200"/><rect x="108" y="237" width="20" height="8" rx="4" fill="#62D6E8"/><rect x="136" y="237" width="20" height="8" rx="4" fill="#77cdff"/>
+  </g><g transform="translate(426,278)">
+    <rect width="348" height="270" rx="16" fill="#120D15" stroke="#FD4200" stroke-opacity=".45"/>
+    <path d="M16 0H332Q348 0 348 16V46H0V16Q0 0 16 0" fill="#0D0710"/>
+    <circle cx="20" cy="23" r="4" fill="#FD4200"/><circle cx="34" cy="23" r="4" fill="#CC65FF"/><circle cx="48" cy="23" r="4" fill="#C3E88D"/>
+    <text x="70" y="29" fill="#FEF7FF" font-family="DejaVu Sans, sans-serif" font-weight="bold" font-size="16">Yotei Midnight</text>
+    <text xml:space="preserve" font-family="DejaVu Sans Mono, monospace" font-size="16" fill="#FEF7FF">
+      <tspan x="24" y="87" fill="#B2A7B8">// Colors of first light</tspan>
+      <tspan x="24" y="125" fill="#CC65FF">const</tspan><tspan> theme = {</tspan>
+      <tspan x="44" y="155">name: </tspan><tspan fill="#FEF7FF">"Yotei"</tspan><tspan>,</tspan>
+      <tspan x="44" y="185">mood: </tspan><tspan fill="#FEF7FF">"midnight"</tspan>
+      <tspan x="24" y="215">};</tspan>
+    </text>
+    <rect x="24" y="237" width="20" height="8" rx="4" fill="#FD4200"/><rect x="52" y="237" width="20" height="8" rx="4" fill="#de71ff"/><rect x="80" y="237" width="20" height="8" rx="4" fill="#FD4200"/><rect x="108" y="237" width="20" height="8" rx="4" fill="#62D6E8"/><rect x="136" y="237" width="20" height="8" rx="4" fill="#77cdff"/>
+  </g><g transform="translate(792,278)">
+    <rect width="348" height="270" rx="16" fill="#FFF7FB" stroke="#FD4200" stroke-opacity=".45"/>
+    <path d="M16 0H332Q348 0 348 16V46H0V16Q0 0 16 0" fill="#F2DDEB"/>
+    <circle cx="20" cy="23" r="4" fill="#FD4200"/><circle cx="34" cy="23" r="4" fill="#CC65FF"/><circle cx="48" cy="23" r="4" fill="#C3E88D"/>
+    <text x="70" y="29" fill="#35263D" font-family="DejaVu Sans, sans-serif" font-weight="bold" font-size="16">Yotei Dawn</text>
+    <text xml:space="preserve" font-family="DejaVu Sans Mono, monospace" font-size="16" fill="#35263D">
+      <tspan x="24" y="87" fill="#8A748F">// Colors of first light</tspan>
+      <tspan x="24" y="125" fill="#8117C7">const</tspan><tspan> theme = {</tspan>
+      <tspan x="44" y="155">name: </tspan><tspan fill="#35263D">"Yotei"</tspan><tspan>,</tspan>
+      <tspan x="44" y="185">mood: </tspan><tspan fill="#35263D">"dawn"</tspan>
+      <tspan x="24" y="215">};</tspan>
+    </text>
+    <rect x="24" y="237" width="20" height="8" rx="4" fill="#FD4200"/><rect x="52" y="237" width="20" height="8" rx="4" fill="#8117C7"/><rect x="80" y="237" width="20" height="8" rx="4" fill="#5D7F16"/><rect x="108" y="237" width="20" height="8" rx="4" fill="#256D85"/><rect x="136" y="237" width="20" height="8" rx="4" fill="#9A4A00"/>
+  </g>
+  <rect x="60" y="583" width="34" height="3" rx="1.5" fill="url(#sunrise)"/>
+  <text x="107" y="591" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#B2A7B8">yotei.bzenky.dev</text>
+</svg>

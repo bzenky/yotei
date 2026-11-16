@@ -7,9 +7,13 @@ interface Props {
 }
 
 const {
-  title = "Yotei Theme Preview",
-  description = "Preview the Yotei theme across editor UI, code samples, and terminal colors."
+  title = "Yotei — Three palettes for your workspace",
+  description = "Explore Yotei, Midnight, and Dawn: three palettes inspired by the colors of dawn. Preview real syntax highlighting and find themes for your editor and terminal."
 } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const socialImageURL = new URL("/og-image.png", Astro.site);
+const socialImageAlt = "Yotei, Yotei Midnight, and Yotei Dawn editor previews showing the three theme palettes.";
 ---
 
 <!doctype html>
@@ -18,6 +22,23 @@ const {
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
+    <link rel="canonical" href={canonicalURL} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Yotei" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={socialImageURL} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={socialImageAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImageURL} />
+    <meta name="twitter:image:alt" content={socialImageAlt} />
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
     <link rel="preconnect" href="https://www.google-analytics.com" />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
