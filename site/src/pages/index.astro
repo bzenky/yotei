@@ -10,13 +10,18 @@ import { codeToHtml } from "shiki";
 
 const themes = await getThemes();
 const featuredTheme = themes[0];
-const highlightedSamples = await Promise.all(
-  samples.map(async (sample) => ({
-    ...sample,
-    html: await codeToHtml(sample.code, {
-      lang: sample.language,
-      theme: featuredTheme.shikiTheme
-    })
+const previews = await Promise.all(
+  themes.map(async (theme) => ({
+    theme,
+    samples: await Promise.all(
+      samples.map(async (sample) => ({
+        ...sample,
+        html: await codeToHtml(sample.code, {
+          lang: sample.language,
+          theme: theme.shikiTheme
+        })
+      }))
+    )
   }))
 );
 ---
@@ -33,11 +38,29 @@ const highlightedSamples = await Promise.all(
           and explore previews for supported applications.
         </p>
         <div class="hero-actions">
-          <a class="button primary" href={`/themes/${featuredTheme.slug}`}>Open full preview</a>
+          <a class="button primary" href={`/themes/${featuredTheme.slug}`} data-full-preview-link>Open full preview</a>
           <a class="button secondary" href="https://github.com/bzenky/yotei" target="_blank" rel="noreferrer">View on GitHub</a>
         </div>
       </div>
-      <ThemePreview theme={featuredTheme} samples={highlightedSamples} compact />
+      <div class="theme-showcase" data-theme-showcase>
+        <div class="variant-picker" role="group" aria-label="Preview theme variant">
+          {themes.map((theme, index) => (
+            <button
+              type="button"
+              data-theme-variant={theme.slug}
+              aria-pressed={index === 0 ? "true" : "false"}
+              aria-controls={`showcase-${theme.slug}`}
+            >
+              {theme.name}
+            </button>
+          ))}
+        </div>
+        {previews.map(({ theme, samples }, index) => (
+          <div id={`showcase-${theme.slug}`} data-theme-preview={theme.slug} hidden={index !== 0}>
+            <ThemePreview theme={theme} samples={samples} compact />
+          </div>
+        ))}
+      </div>
     </section>
 
     <section class="theme-gallery" aria-labelledby="themes-title">
@@ -62,3 +85,31 @@ const highlightedSamples = await Promise.all(
     <Palette theme={featuredTheme} />
   </main>
 </BaseLayout>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-theme-showcase]").forEach((showcase) => {
+    const buttons = showcase.querySelectorAll<HTMLButtonElement>("[data-theme-variant]");
+    const previews = showcase.querySelectorAll<HTMLElement>("[data-theme-preview]");
+    const fullPreviewLink = showcase.closest(".hero")?.querySelector<HTMLAnchorElement>("[data-full-preview-link]");
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const slug = button.dataset.themeVariant;
+        const nextPreview = Array.from(previews).find((preview) => preview.dataset.themePreview === slug);
+        if (!nextPreview) return;
+
+        const activeTab = showcase.querySelector<HTMLElement>("[data-theme-preview]:not([hidden]) [data-sample-tab].active");
+        const sampleIndex = activeTab?.dataset.sampleTab ?? "0";
+        nextPreview.querySelector<HTMLButtonElement>(`[data-sample-tab="${sampleIndex}"]`)?.click();
+
+        previews.forEach((preview) => {
+          preview.hidden = preview !== nextPreview;
+        });
+        buttons.forEach((item) => {
+          item.setAttribute("aria-pressed", String(item === button));
+        });
+        if (fullPreviewLink) fullPreviewLink.href = `/themes/${slug}`;
+      });
+    });
+  });
+</script>
