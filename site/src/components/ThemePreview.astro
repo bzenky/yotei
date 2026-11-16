@@ -48,15 +48,27 @@ const cssVars = [
       <span>⚙</span>
     </aside>
 
-    <aside class="sidebar">
+    <aside class="sidebar" aria-label="File explorer">
       <div class="sidebar-title">EXPLORER</div>
-      <ul>
-        <li class="open">src</li>
-        <li>components</li>
-        <li>ThemePreview.astro</li>
-        <li>lib/themes.ts</li>
-        <li>README.md</li>
-      </ul>
+      <details class="explorer-folder" open>
+        <summary>preview</summary>
+        <ul>
+          {samples.map((sample, index) => (
+            <li>
+              <button
+                class="explorer-file"
+                type="button"
+                data-explorer-file={index}
+                aria-current={index === 0 ? "true" : undefined}
+                aria-controls={`${id}-panel-${index}`}
+                title={sample.filename}
+              >
+                {sample.filename}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </details>
     </aside>
 
     <div class="workbench">
@@ -65,7 +77,11 @@ const cssVars = [
           <button
             class:list={["tab", { active: index === 0 }]}
             type="button"
+            id={`${id}-tab-${index}`}
+            role="tab"
             data-sample-tab={index}
+            aria-controls={`${id}-panel-${index}`}
+            tabindex={index === 0 ? 0 : -1}
             aria-selected={index === 0 ? "true" : "false"}
           >
             {sample.filename}
@@ -77,7 +93,14 @@ const cssVars = [
         <div class="breadcrumbs">yotei / preview / <span data-active-file>{activeSample.filename}</span></div>
         <div class="code-panels">
           {samples.map((sample, index) => (
-            <div class:list={["code-panel", { active: index === 0 }]} data-sample-panel={index} data-filename={sample.filename}>
+            <div
+              id={`${id}-panel-${index}`}
+              class:list={["code-panel", { active: index === 0 }]}
+              role="tabpanel"
+              aria-labelledby={`${id}-tab-${index}`}
+              data-sample-panel={index}
+              data-filename={sample.filename}
+            >
               <Fragment set:html={sample.html} />
             </div>
           ))}
@@ -101,25 +124,53 @@ const cssVars = [
 
 <script>
   document.querySelectorAll("[data-preview-root]").forEach((root) => {
-    const tabs = Array.from(root.querySelectorAll("[data-sample-tab]"));
-    const panels = Array.from(root.querySelectorAll("[data-sample-panel]"));
+    const tabs = Array.from(root.querySelectorAll<HTMLButtonElement>("[data-sample-tab]"));
+    const files = Array.from(root.querySelectorAll<HTMLButtonElement>("[data-explorer-file]"));
+    const panels = Array.from(root.querySelectorAll<HTMLElement>("[data-sample-panel]"));
     const activeFile = root.querySelector("[data-active-file]");
 
-    tabs.forEach((tab) => {
-      tab.addEventListener("click", () => {
-        const index = tab.getAttribute("data-sample-tab");
-        const panel = root.querySelector(`[data-sample-panel="${index}"]`);
+    function selectSample(index: string) {
+      const panel = panels.find((item) => item.dataset.samplePanel === index);
+      if (!panel) return;
 
-        tabs.forEach((item) => {
-          item.classList.toggle("active", item === tab);
-          item.setAttribute("aria-selected", item === tab ? "true" : "false");
-        });
-        panels.forEach((item) => item.classList.toggle("active", item === panel));
-
-        if (activeFile && panel instanceof HTMLElement) {
-          activeFile.textContent = panel.dataset.filename ?? "preview";
+      tabs.forEach((tab) => {
+        const selected = tab.dataset.sampleTab === index;
+        tab.classList.toggle("active", selected);
+        tab.setAttribute("aria-selected", String(selected));
+        tab.tabIndex = selected ? 0 : -1;
+      });
+      panels.forEach((item) => item.classList.toggle("active", item === panel));
+      files.forEach((file) => {
+        if (file.dataset.explorerFile === index) {
+          file.setAttribute("aria-current", "true");
+          const folder = file.closest("details");
+          if (folder) folder.open = true;
+        } else {
+          file.removeAttribute("aria-current");
         }
       });
+
+      if (activeFile) activeFile.textContent = panel.dataset.filename ?? "preview";
+    }
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => selectSample(tab.dataset.sampleTab!));
+      tab.addEventListener("keydown", (event) => {
+        let nextIndex: number;
+        switch (event.key) {
+          case "ArrowRight": nextIndex = (index + 1) % tabs.length; break;
+          case "ArrowLeft": nextIndex = (index - 1 + tabs.length) % tabs.length; break;
+          case "Home": nextIndex = 0; break;
+          case "End": nextIndex = tabs.length - 1; break;
+          default: return;
+        }
+        event.preventDefault();
+        tabs[nextIndex].focus();
+        tabs[nextIndex].click();
+      });
+    });
+    files.forEach((file) => {
+      file.addEventListener("click", () => selectSample(file.dataset.explorerFile!));
     });
   });
 </script>
